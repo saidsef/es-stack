@@ -1,0 +1,13 @@
+name 'elk-stack'
+maintainer 'Said Sef'
+maintainer_email 'saidsef@gmail.com.com'
+license 'GPLv2'
+description 'Installs/Configures elk-stack'
+long_description 'Installs/Configures elk-stack'
+version '0.1.0'
+
+depends 'elasticsearch'
+depends 'java'
+depends 'apt'
+depends 'yum'
+depends 'nginx'
