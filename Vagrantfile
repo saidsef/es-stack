@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     elasticsearch.vm.box = box_name
     elasticsearch.vm.box_url = box_url
     elasticsearch.vm.network :private_network, ip: ELASTICSEARCH, auto_config: false
-    elasticsearch.vm.provision 'shell', inline: "ifconfig eth1 10.0.100.30"
+    #elasticsearch.vm.provision 'shell', inline: "ifconfig eth1 10.0.100.30"
     #elasticsearch.vm.hostname = 'elasticsearch.local'
 
     elasticsearch.vm.network "forwarded_port", guest: 9200, host: 9200
@@ -45,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     elasticsearch.vm.provision :chef_solo do |chef|
-      chef.add_recipe 'elk-stack::default'
+      chef.add_recipe 'es-stack::default'
       chef.json = {
         "name" => "elk-stack"
       }

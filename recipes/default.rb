@@ -5,7 +5,7 @@
 # Copyright (c) 2016 Said Sef, All Rights Reserved.
 
 include_recipe 'java::default'
-include_recipe 'python::defaul'
+include_recipe 'python::default'
 
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch'
