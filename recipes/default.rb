@@ -23,7 +23,7 @@ elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
 
   logging({:"action" => 'INFO'})
 
-  allocated_memory "#{((node['elasticsearch']['max_mem_percent'].to_f / 100.0 ) * node['memory']['total'].to_i).ceil}m"
+  allocated_memory "#{((node['elasticsearch']['max_mem_percent'].to_f / 100.0 ) * node['memory']['total'].to_i / 1024).ceil}m"
   thread_stack_size '512k'
 
   env_options node['elasticsearch']['env_options']
