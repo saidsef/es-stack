@@ -1,4 +1,4 @@
-name 'elk-stack'
+name 'es-stack'
 maintainer 'Said Sef'
 maintainer_email 'saidsef@gmail.com.com'
 license 'GPLv2'
