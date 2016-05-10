@@ -1,5 +1,10 @@
 # === VERSION
 #
+
+default['java']['jdk_version'] = '8'
+default['java']['install_flavor'] = 'oracle'
+default['java']['oracle']['accept_oracle_download_terms'] = true
+
 default['elasticsearch']['version']           = '2.3.2'
 default['elasticsearch']['install_type']      = :package
 

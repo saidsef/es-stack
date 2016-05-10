@@ -4,6 +4,8 @@
 #
 # Copyright (c) 2016 Said Sef, All Rights Reserved.
 
+include_recipe 'java::default'
+
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch'
 elasticsearch_configure 'elasticsearch'
@@ -11,7 +13,7 @@ elasticsearch_service 'elasticsearch'
 
 %W{mobz/elasticsearch-head elasticsearch-cloud-aws}.each do |package|
   elasticsearch_plugin "installing plugin #{package}" do
-    url "#{package}"
+    action :install
   end
 end
 
