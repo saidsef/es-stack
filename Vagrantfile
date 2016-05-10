@@ -24,16 +24,21 @@ ELASTICSEARCH = '10.0.100.30'
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.enabled = true
   config.berkshelf.berksfile_path = './Berksfile'
+
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
-  config.vm.hostname = HOST_MACHINE
+  config.hostmanager.manage_guest = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
+
+  # hostmanager provisioner
+  config.vm.provision :hostmanager
 
   config.vm.define 'es' do |es|
     es.vm.box = box_name
     es.vm.box_url = box_url
     es.vm.network :private_network, ip: ELASTICSEARCH, auto_config: false
-    #es.vm.provision 'shell', inline: "ifconfig eth1 10.0.100.30"
-    es.vm.hostname = 'es.local'
+    es.hostmanager.aliases = %w(es.local)
 
     es.vm.network "forwarded_port", guest: 9200, host: 9200
     es.vm.network "forwarded_port", guest: 9300, host: 9300
@@ -45,10 +50,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     es.vm.provision :chef_solo do |chef|
-      chef.add_recipe 'hostname::default'
       chef.add_recipe 'es-stack::default'
       chef.json = {
-        "name" => "elk-stack"
+        "name" => "es-stack"
       }
     end
   end
