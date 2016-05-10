@@ -51,3 +51,9 @@ elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
 
   action :manage
 end
+
+%W{elasticsearch elasticsearch-curator flask}.each do |package|
+  python_pip package do
+    action :install
+  end
+end
