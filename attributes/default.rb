@@ -8,6 +8,11 @@ default['java']['oracle']['accept_oracle_download_terms'] = true
 default['elasticsearch']['version']           = '2.3.2'
 default['elasticsearch']['install_type']      = :package
 
+default['elasticsearch']['env_options']       = ''
+
+default['elasticsearch']['path.data']         = '/usr/share/elasticsearch'
+default['elasticsearch']['path.logs']         = '/var/log/elasticsearch'
+
 default['elasticsearch']['max_mem_percent']       = '80%'
 default['elasticsearch']['limits']['hard']    = 'unlimited'
 default['elasticsearch']['limits']['nofile']  = '500000'
