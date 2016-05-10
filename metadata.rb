@@ -6,7 +6,7 @@ description 'Installs/Configures es-stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.2'
 
-%w{elasticsearch java apt yum nginx python}.each do |cookbook|
+%w{elasticsearch java apt yum nginx python hostname}.each do |cookbook|
   depends cookbook
 end
 
