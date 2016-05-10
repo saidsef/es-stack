@@ -10,6 +10,6 @@ version '0.1.2'
   depends cookbook
 end
 
-%w{ubuntu centos redhat fedora}.each do |os|
+%w{debian ubuntu centos redhat fedora amazon mac_os_x}.each do |os|
   supports os
 end

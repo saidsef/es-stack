@@ -11,23 +11,21 @@ elasticsearch_install 'elasticsearch'
 elasticsearch_configure 'elasticsearch'
 elasticsearch_service 'elasticsearch'
 
-%W{mobz/elasticsearch-head elasticsearch-cloud-aws}.each do |package|
-  elasticsearch_plugin "installing plugin #{package}" do
+%W{mobz/elasticsearch-head elasticsearch/elasticsearch-cloud-aws}.each do |package|
+  elasticsearch_plugin "#{package}" do
     action :install
   end
 end
 
 elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
   # if you override one of these, you probably want to override all
-  path_data     tarball: node['elasticsearch']['path_data'] if ! node['elasticsearch']['path_data'].empty?
-  path_logs     tarball: node['elasticsearch']['path_logs'] if ! node['elasticsearch']['path_data'].empty?
 
   logging({:"action" => 'INFO'})
 
   allocated_memory "#{((node['elasticsearch']['max_mem_percent'].to_i / 100 ) * node['memory']['total'].to_i).ceil}"
   thread_stack_size '512k'
 
-  env_options '-DFOO=BAR'
+  env_options node['elasticsearch']['env_options'] if !node['elasticsearch']['env_options'].empty?
   gc_settings <<-CONFIG
                 -XX:+UseParNewGC
                 -XX:+UseConcMarkSweepGC
