@@ -10,7 +10,6 @@ include_recipe 'python::default'
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch'
 elasticsearch_configure 'elasticsearch'
-elasticsearch_service 'elasticsearch'
 
 %W{mobz/elasticsearch-head}.each do |package|
   elasticsearch_plugin "#{package}" do
@@ -58,4 +57,8 @@ end
   python_pip package do
     action :install
   end
+end
+
+elasticsearch_service 'elasticsearch' do
+  action [:enabled, :started]
 end
