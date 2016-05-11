@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: elk-stack
+# Cookbook Name:: es-stack
 # Spec:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'elk-stack::default' do
+describe 'es-stack::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new

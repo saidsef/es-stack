@@ -17,5 +17,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[elk-stack::default]
+      - recipe[es-stack::default]
     attributes:

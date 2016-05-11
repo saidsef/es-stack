@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: es-stack
+# Attribute:: default
+#
+# Copyright (c) 2016 Said Sef, All Rights Reserved.
+#
 # === VERSION
 #
 

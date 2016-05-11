@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: elk-stack
+# Cookbook Name:: es-stack
 # Recipe:: default
 #
 # Copyright (c) 2016 Said Sef, All Rights Reserved.
