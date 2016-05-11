@@ -18,6 +18,7 @@ default['elasticsearch']['node.name']         = if !node['fqdn'].empty?
                                                   node['fqdn']
                                                 else
                                                   node['ipaddress']
+                                                end
 
 default['elasticsearch']['cluster.name']      = 'elasticsearch'
 
