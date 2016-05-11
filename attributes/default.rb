@@ -14,7 +14,7 @@ default['java']['oracle']['accept_oracle_download_terms'] = true
 default['elasticsearch']['version']           = '2.3.2'
 default['elasticsearch']['install_type']      = :package
 
-default['elasticsearch']['node.name']         = if !node['fqdn'].nil? || !node['fqdn'].empty? 
+default['elasticsearch']['node.name']         = if !node['fqdn'].nil? and !node['fqdn'].empty? 
                                                   node['fqdn']
                                                 else
                                                   node['ipaddress']
