@@ -36,8 +36,8 @@ elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
               CONFIG
 
   configuration ({
-    'node.name' => node['fqdn'],
-    'cluster.name' => node['elasticsearch']['node.name'],
+    'node.name' => node['elasticsearch']['node.name'],
+    'cluster.name' => node['elasticsearch']['cluster.name'],
     'node.master' => true,
     'node.data' => true,
     'path.data' => node['elasticsearch']['path.data'],
@@ -46,8 +46,10 @@ elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
     'indices.store.throttle.type' => 'none',
     'indices.recovery.max_bytes_per_sec' => '200mb',
     'indices.recovery.concurrent_streams' => 3,
-    'bootstrap.mlockall' => true
-
+    'bootstrap.mlockall' => true,
+    'cloud.node.auto_attributes' => node['elasticsearch']['cloud.node.auto_attributes'],
+    'index.number_of_shards' => node['elasticsearch']['index.number_of_shards'],
+    'index.number_of_replicas' => node['elasticsearch']['index.number_of_replicas']
   })
 
   action :manage

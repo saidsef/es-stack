@@ -14,15 +14,23 @@ default['java']['oracle']['accept_oracle_download_terms'] = true
 default['elasticsearch']['version']           = '2.3.2'
 default['elasticsearch']['install_type']      = :package
 
+default['elasticsearch']['node.name']         = if !node['fqdn'].empty?
+                                                  node['fqdn']
+                                                else
+                                                  node['ipaddress']
+
+default['elasticsearch']['cluster.name']      = 'elasticsearch'
+
 default['elasticsearch']['env_options']       = ''
 
 default['elasticsearch']['path.data']         = '/usr/share/elasticsearch'
 default['elasticsearch']['path.logs']         = '/var/log/elasticsearch'
 
-default['elasticsearch']['max_mem_percent']       = '80%'
+default['elasticsearch']['max_mem_percent']   = '85%'
 default['elasticsearch']['limits']['hard']    = 'unlimited'
 default['elasticsearch']['limits']['nofile']  = '500000'
 default['elasticsearch']['limits']['memlock'] = 'unlimited'
 
-default['elasticsearch']['index.number_of_shards']    = 1
-default['elasticsearch']['index.number_of_replicas']  = 0
+default['elasticsearch']['cloud.node.auto_attributes'] = true
+default['elasticsearch']['index.number_of_shards']     = 1
+default['elasticsearch']['index.number_of_replicas']   = 0
