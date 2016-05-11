@@ -60,5 +60,5 @@ end
 end
 
 elasticsearch_service 'elasticsearch' do
-  action [:enabled, :started]
+  action [:enable, :start]
 end
