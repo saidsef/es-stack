@@ -24,8 +24,8 @@ default['elasticsearch']['cluster.name']      = 'elasticsearch'
 
 default['elasticsearch']['env_options']       = ''
 
-default['elasticsearch']['path.data']         = '/usr/share/elasticsearch'
-default['elasticsearch']['path.logs']         = '/var/log/elasticsearch'
+default['elasticsearch']['path.data']         = ['/usr/share/elasticsearch']
+default['elasticsearch']['path.logs']         = ['/var/log/elasticsearch']
 
 default['elasticsearch']['max_mem_percent']   = '85%'
 default['elasticsearch']['limits']['hard']    = 'unlimited'
