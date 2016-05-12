@@ -49,11 +49,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.memory = 1024
     end
 
-    es.vm.provision :chef_solo do |chef|
+    es.vm.provision :chef_zero do |chef|
+      chef.nodes_path = "./"
       chef.add_recipe 'es-stack::default'
-      chef.json = {
-        "name" => "es-stack"
-      }
+      chef.json = {"name" => "es-stack"}
     end
   end
 end
