@@ -49,7 +49,9 @@ elasticsearch_configure "#{node['elasticsearch']['node.name']}" do
     'bootstrap.mlockall' => true,
     'cloud.node.auto_attributes' => node['elasticsearch']['cloud.node.auto_attributes'],
     'index.number_of_shards' => node['elasticsearch']['index.number_of_shards'],
-    'index.number_of_replicas' => node['elasticsearch']['index.number_of_replicas']
+    'index.number_of_replicas' => node['elasticsearch']['index.number_of_replicas'],
+    'network.bind_host' => node['elasticsearch']['network.bind_host'],
+    'network.publish_host' => node['elasticsearch']['network.publish_host']
   })
 
   action :manage

@@ -1,8 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+Vagrant.require_version ">= 1.7.0"
+
+require 'fileutils'
+
 ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES'] = 'true'
-%w{ vagrant-berkshelf vagrant-hostmanager vagrant-salt vagrant-vbguest}.each do |plugin|
+%w{ vagrant-berkshelf vagrant-hostmanager vagrant-vbguest vagrant-share}.each do |plugin|
   # Will install dependent plugin
   unless Vagrant.has_plugin?(plugin)
     puts '*********************************'
@@ -30,6 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.manage_guest = true
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
+
+  config.vm.hostname = HOST_MACHINE
 
   # hostmanager provisioner
   config.vm.provision :hostmanager

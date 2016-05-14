@@ -35,3 +35,6 @@ default['elasticsearch']['limits']['memlock'] = 'unlimited'
 default['elasticsearch']['cloud.node.auto_attributes'] = true
 default['elasticsearch']['index.number_of_shards']     = 1
 default['elasticsearch']['index.number_of_replicas']   = 0
+
+default['elasticsearch']['network.bind_host']          = "0.0.0.0"
+default['elasticsearch']['network.publish_host']       = "_non_loopback:ipv4_"
