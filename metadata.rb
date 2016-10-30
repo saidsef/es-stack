@@ -1,9 +1,8 @@
 name 'es-stack'
 
 maintainer 'Said Sef'
-maintainer_email 'saidsef@gmail.com.com'
-
-license 'GPLv2'
+maintainer_email 'saidsef@gmail.com'
+license 'MIT'
 
 description 'Installs/Configures es-stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
