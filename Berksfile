@@ -4,6 +4,7 @@ metadata
 
 cookbook 'elasticsearch'
 cookbook 'java'
+cookbook 'curl'
 cookbook 'apt'
 cookbook 'yum'
 cookbook 'nginx'
