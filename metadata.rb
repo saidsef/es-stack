@@ -8,7 +8,7 @@ license 'GPLv2'
 description 'Installs/Configures es-stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
-version '0.1.20'
+version '0.1.21'
 ohai_version '~> 8'
 
 source_url 'https://github.com/saidsef/es-stack'
