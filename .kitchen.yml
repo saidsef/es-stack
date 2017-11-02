@@ -1,14 +1,19 @@
 ---
 driver:
-  name: vagrant
+  name: proxy
+  host: localhost
+  reset_command: "exit 0"
+  port: <%= ENV["machine_port"] %>
+  username: <%= ENV["machine_user"] %>
+  password: <%= ENV["machine_pass"] %>
 
 provisioner:
   name: chef_zero
 
 # Uncomment the following verifier to leverage Inspec instead of Busser (the
 # default verifier)
-# verifier:
-#   name: inspec
+verifier:
+  name: inspec
 
 platforms:
   - name: ubuntu-14.04
